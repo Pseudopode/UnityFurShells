@@ -5,7 +5,6 @@
 QnFurShell is a demo of the "sheel concept" for Fur rendering in 3D models.
 
 The app is made with Unity, and has been tested & run on Windows & OSX.
-You can grab precomplied binaries from the Releases page.
 
 ## System Requirements
 Unity 2018.3 or more (the script should work on lower version, but the minimum version I used was that one)
