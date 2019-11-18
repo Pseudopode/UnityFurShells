@@ -67,14 +67,14 @@ If the texture applied on it has an alpha channel, the accumulation of different
 The accumulation of layers, with the proper alpha pattern can lead to illusion of hair strands.
 
 In Unity, you can see when selecting the layers that the more outwards the selected layer is, the fewer parts of it can be seen.
-[Image006](Documentation/screen_shells3.png "")
+![Image006](Documentation/screen_shells3.png "")
 
 ### Limitations
 
 In this demo, we keep the same Standard Shader parameters along all the shell layers. You can manage a List of different shader, and change them accordingly, depending on the depth of the layer.
 This could help having a better 'feel' for the fur.
 When the model is seen close to the camera, the various layers can be seen, and the illusion is broken.
-[Image007](Documentation/screen_shells2.png "")
+![Image007](Documentation/screen_shells2.png "")
 
 ## TODO
 Export the newly created model as FBX or GLTF.
