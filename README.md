@@ -20,7 +20,7 @@ The aspect is very 'flat'.
 
 You can click on any 3D object to select it. **It's on that object that the Fur is going to be created.**
 
-![Image002]Documentation/(interaction.png "")
+![Image002](Documentation/interaction.png "")
 
 When the GameObject is selected, the button is enabled.
 You can then click on it, to create a series of 'shells', to simulate the aspect of fur.
