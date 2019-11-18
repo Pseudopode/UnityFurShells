@@ -37,7 +37,7 @@ The GUI is minimalistic. When you click on a GameObject, it's selected for Shell
 After shells has been created, you can click another object to add shells on it.
 
 All the layers are created under the 'Shell root' node, and can be deleted if the model is further edited in another tool.
-![Image008]Documentation/(parameters.png "")
+![Image008](Documentation/parameters.png "")
 
 ## The script
 The exposed parameters helps you fine tune the shell creation.
@@ -50,7 +50,7 @@ The **'Color Starting Value'** is the darkening value at which the color is goin
 The **'Base Material'** is the shader with the original shader, and the **'Shell Material'** is the Material that is 'Fade'. 
 
 ## The texture
-The test texture has an albedo value ![Image004]Documentation/(fur_albedo.png "") and a transparency(alpha) layer ![Image005]Documentation/(alpha.png "").
+The test texture has an albedo value ![Image004](Documentation/fur_albedo.png "") and a transparency(alpha) layer ![Image005](Documentation/alpha.png "").
 The dot pattern on the alpha channel helps to perceive 'strands'. You can tweak it to change the aspect.
 
 ## How it works
@@ -67,14 +67,14 @@ If the texture applied on it has an alpha channel, the accumulation of different
 The accumulation of layers, with the proper alpha pattern can lead to illusion of hair strands.
 
 In Unity, you can see when selecting the layers that the more outwards the selected layer is, the fewer parts of it can be seen.
-[Image006]Documentation/(screen_shells3.png "")
+[Image006](Documentation/screen_shells3.png "")
 
 ### Limitations
 
 In this demo, we keep the same Standard Shader parameters along all the shell layers. You can manage a List of different shader, and change them accordingly, depending on the depth of the layer.
 This could help having a better 'feel' for the fur.
 When the model is seen close to the camera, the various layers can be seen, and the illusion is broken.
-[Image007]Documentation/(screen_shells2.png "")
+[Image007](Documentation/screen_shells2.png "")
 
 ## TODO
 Export the newly created model as FBX or GLTF.
