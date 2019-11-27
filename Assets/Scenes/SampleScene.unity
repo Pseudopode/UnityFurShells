@@ -329,7 +329,7 @@ MonoBehaviour:
   colorStartingValue: 0.75
   baseMaterial: {fileID: 2100000, guid: f5e7e0376718e7045a0b807a6e2eb913, type: 2}
   shellMaterial: {fileID: 2100000, guid: df35f0ff42acccf46a46daaaaee8c136, type: 2}
-  shellTexture: {fileID: 2800000, guid: 166e04a991603c040ae1302e93068897, type: 3}
+  shellTexture: {fileID: 2800000, guid: e30efced99f28894e8b9a878a8ff5817, type: 3}
   buttonFur: {fileID: 1404210155}
   infoText: {fileID: 1206362163}
 --- !u!4 &683208518
@@ -775,7 +775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0.22874412, y: 0.65991217, z: -0.22184816, w: -0.680423}
-  m_LocalPosition: {x: 6.2603693, y: 4.880243, z: 0.87538666}
+  m_LocalPosition: {x: 6, y: 4.880243, z: 0.87538666}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

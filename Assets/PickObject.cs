@@ -26,6 +26,15 @@ public static class Extensions
         color.a = value;
         material.color = color;
     }
+
+    public static void SetColorFloat(this Material material, float value)
+    {
+        Color color = material.color;
+        color.r = value;
+        color.g = value;
+        color.b = value;
+        material.color = color;
+    }
 }
 
 
@@ -45,22 +54,16 @@ public class PickObject : MonoBehaviour
     public Material baseMaterial;
     public Material shellMaterial;
     public Texture2D shellTexture;
-    //public bool export = false;
 
     public Button buttonFur;
 
     public GameObject infoText;
 
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     public void createFur()
     {
-        //if (duplicate)
+
         {
             float scaleX = 1, scaleY = 1, scaleZ = 1;
             float localY = 0.0f;
@@ -72,7 +75,9 @@ public class PickObject : MonoBehaviour
                 scaleY = shellRoot.transform.localScale.y;
                 scaleZ = shellRoot.transform.localScale.z;
 
-                //localY = shellRoot.transform.position.y;
+                //we just need to set the parent GameObject to have the same material (only useful for this demo)
+                Material m = Instantiate(baseMaterial);
+                objToDuplicate.GetComponent<Renderer>().sharedMaterial = m;
             }
 
             for (int i = 0; i < shellNumber; i++)
@@ -85,44 +90,28 @@ public class PickObject : MonoBehaviour
                 shell.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
 
                 Material m = Instantiate(shellMaterial);
-                //Material mat = new Material(Shader.Find("Standard");
                 m.SetAsFade();
 
                 Color color = m.color;
-                //Color color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-                color.r = 1.0f / shellNumber * i + colorStartingValue;
-                color.g = 1.0f / shellNumber * i + colorStartingValue;
-                color.b = 1.0f / shellNumber * i + colorStartingValue;
+                color.r = Mathf.Lerp(colorStartingValue, 1.0f, shellNumber);
+                color.g = Mathf.Lerp(colorStartingValue, 1.0f, shellNumber);
+                color.b = Mathf.Lerp(colorStartingValue, 1.0f, shellNumber);
                 m.color = color;
 
                 m.name = "Shell_" + i.ToString();
                 m.SetTexture("_MainTex", shellTexture);
-                //m.SetAlpha(1.0f - (1.0f / i));
-                m.SetAlpha((1.0f / (i / 2)));
 
-                if (i == 0)
-                {
-                    Debug.Log("i: " + i + "Alpha value: " + color.a);
-                    m.SetAlpha(0.9f);
-                }
-                if (i == 1)
-                {
-                    Debug.Log("i: " + i + "Alpha value: " + color.a);
-                    m.SetAlpha(0.75f);
-                }
+                float layerCoeff = ((float)i) / ((float)shellNumber);
+                Debug.Log("layerCoeff: " + layerCoeff);
+                Debug.Log("Value: " + Mathf.Lerp(colorStartingValue, 1.0f, layerCoeff));
+
+                m.SetAlpha(Mathf.Lerp(colorStartingValue, 1.0f, layerCoeff));
 
                 shell.GetComponent<Renderer>().sharedMaterial = m;
-                //shell.GetComponent<Renderer>().material.SetAsFade();
-                //shell.GetComponent<Renderer>().material.SetAlpha(1.0f - (1.0f / i));
-                //shell.GetComponent<Renderer>().material.name = "Shell_" + i.ToString();
-                //shell.GetComponent<Renderer>().material.SetTexture("_MainTex", shellTexture);
-                //shell.GetComponent<Renderer>().material.SetColor("_Color", color);
-                // shell.GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+                shell.GetComponent<Renderer>().material.SetFloat("_Glossiness", Mathf.Lerp(colorStartingValue, 1.0f, layerCoeff) - 0.5f);
             }
 
             shellRoot.transform.parent = objToDuplicate.transform;
-            //objToDuplicate.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
-            //shellRoot.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
 
             Material mRoot = Instantiate(baseMaterial);
             shellRoot.GetComponent<Renderer>().material = mRoot;
@@ -135,8 +124,6 @@ public class PickObject : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-           // Debug.Log("Mouse is down");
-
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
             if (hit)
@@ -145,27 +132,7 @@ public class PickObject : MonoBehaviour
 
                 buttonFur.interactable = true;
                 infoText.SetActive(false);
-               /* Debug.Log("Hit " + hitInfo.transform.gameObject.name);
-                if (hitInfo.transform.gameObject.tag == "Construction")
-                {
-                    Debug.Log("It's working!");
-                }
-                else
-                {
-                    Debug.Log("nopz");
-                }*/
             }
-            /*else
-            {
-                Debug.Log("No hit");
-            }
-            Debug.Log("Mouse is down");*/
         }
-
-
-
-        
-
-
     }
 }

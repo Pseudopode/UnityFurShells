@@ -1,10 +1,15 @@
 ![Fur Shell Example](Documentation/screen_shells1.png "")
 
-# Quick’n’dirty Fur Shell Demo V1.0
+# Quick’n’dirty Fur Shell Demo V1.1
 
 QnFurShell is a demo of the "sheel concept" for Fur rendering in 3D models.
 
 The app is made with Unity, and has been tested & run on Windows & OSX.
+
+## Update 1.1
+Changed the way the fur alpha is set, as well as the base color.
+![Image008](Documentation/texture1.png)
+![Image009](Documentation/texture2.png)
 
 ## System Requirements
 Unity 2018.3 or more (the script should work on lower version, but the minimum version I used was that one)
